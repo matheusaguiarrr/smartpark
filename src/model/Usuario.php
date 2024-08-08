@@ -60,4 +60,20 @@ class Usuario {
     public function setTipoUsuario($tipo_usuario) {
         $this->tipo_usuario = $tipo_usuario;
     }
+    public function cadastrar(){
+        $sql = "INSERT INTO usuarios (cpf, nome, email, senha, telefone, tipo_usuario) VALUES (?,?,?,?,?,?)";
+        $params = array($this->cpf, $this->nome, $this->email, $this->senha, $this->telefone, $this->tipo_usuario);
+        return Database::executeSQL($sql, $params);
+    }
+    public static function autenticar($email, $senha){
+        $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+        $params = array($email, $senha);
+        $result = Database::getResultFromQuery($sql, $params);
+        if(!$result){
+            return false;
+        }
+        $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->tipo_usuario);
+        $usuario->setId($result->id);
+        return $usuario;
+    }
 }
