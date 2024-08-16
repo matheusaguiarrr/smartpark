@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Jacquard+12&family=Jersey+10&family=Oxanium:wght@200..800&family=Pacifico&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxanium:wght@200..800&family=Rubik+Mono+One&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Tiny5', monospace;
+}
+
+main h1, #btn-login{
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+main #formulario, main #content{
+    height: 100%;
+    padding: 2rem;
+}
+
+main #content {
+    width: 40%;
+    color: white;
+    background-color: blueviolet;
+}
+
+main #formulario {
+    width: 60%;
+    color: blueviolet;
+}
+
+main a {
+    color: blueviolet;
+    text-decoration: none;
+}
