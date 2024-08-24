@@ -3,7 +3,7 @@
     error_reporting(E_ALL);
     if(count($_POST) > 0) {
         $email = $_POST['email'];
-        $senha = $_POST['password'];
+        $senha = $_POST['senha'];
         $usuario = Usuario::autenticar($email, $senha);
         if($usuario == false) {
             header('Location: ../view/login.php');

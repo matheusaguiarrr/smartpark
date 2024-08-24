@@ -35,6 +35,9 @@ class Database {
         try{
             $stmt = $connection->prepare($sql);
             $stmt->execute($params);
+            if($stmt->rowCount() == 0){
+                return null;
+            }
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
         } catch(\PDOException $exception){
             die("Erro: " . $exception->getMessage());

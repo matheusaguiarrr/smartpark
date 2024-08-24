@@ -7,14 +7,12 @@ class Usuario {
     private $email;
     private $senha;
     private $telefone;
-    private $tipo_usuario;
-    public function __construct($cpf, $nome, $email, $senha, $telefone, $tipo_usuario) {
+    public function __construct($cpf, $nome, $email, $senha, $telefone) {
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
         $this->telefone = $telefone;
-        $this->tipo_usuario = $tipo_usuario;
     }
     //Getters
     public function getId() {
@@ -35,9 +33,6 @@ class Usuario {
     public function getTelefone() {
         return $this->telefone;
     }
-    public function getTipoUsuario() {
-        return $this->tipo_usuario;
-    }
     //Setters
     public function setId($id) {
         $this->id = $id;
@@ -57,23 +52,50 @@ class Usuario {
     public function setTelefone($telefone) {
         $this->telefone = $telefone;
     }
-    public function setTipoUsuario($tipo_usuario) {
-        $this->tipo_usuario = $tipo_usuario;
-    }
     public function cadastrar(){
-        $sql = "INSERT INTO usuarios (cpf, nome, email, senha, telefone, tipo_usuario) VALUES (?,?,?,?,?,?)";
-        $params = array($this->cpf, $this->nome, $this->email, $this->senha, $this->telefone, $this->tipo_usuario);
+        $sql = "INSERT INTO usuarios (cpf, nome, email, senha, telefone) VALUES (?,?,?,?,?)";
+        $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
+        $params = array($this->cpf, $this->nome, $this->email, $senhaCriptografada, $this->telefone);
         return Database::executeSQL($sql, $params);
     }
     public static function autenticar($email, $senha){
-        $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
-        $params = array($email, $senha);
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $params = array($email);
         $result = Database::getResultFromQuery($sql, $params);
         if(!$result){
+            return false;
+        } else if(!password_verify($senha, $result->senha)){
             return false;
         }
         $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->tipo_usuario);
         $usuario->setId($result->id);
         return $usuario;
+    }
+
+    public static function buscar($id){
+        $sql = "SELECT * FROM usuarios WHERE id = ?";
+        $params = array($id);
+        $result = Database::getResultFromQuery($sql, $params);
+        if($result){
+            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone);
+            $usuario->setId($result->id);
+            return $usuario;
+        }
+        return null;
+    }
+
+    public static function listar(){
+        $sql = "SELECT * FROM usuarios";
+        $result = Database::getResultsFromQuery($sql);
+        if($result){
+            $usuarios = [];
+            while($row = $result){
+                $usuario = new Usuario($row['cpf'], $row['nome'], $row['email'], $row['senha'], $row['telefone']);
+                $usuario->setId($row['id']);
+                $usuarios[] = $usuario;
+            }
+            return $usuarios;
+        }
+        return null;
     }
 }

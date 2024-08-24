@@ -22,16 +22,12 @@
                 <div class="form-group w-50 pb-4">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="Informe o e-mail" value="<?= $_POST ? $_POST['email'] : '' ?>" autofocus>
-                    <div class="invalid-feedback">
-                        E-mail vazio
-                    </div>
+                    <div id="email_feedback" class="invalid-feedback"></div>
                 </div>
                 <div class="form-group w-50 pb-4">
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" name="senha" class="form-control" placeholder="Informe a senha" value="<?= $_POST ? $_POST['password'] : '' ?>">
-                    <div class="invalid-feedback">
-                        Senha vazia
-                    </div>
+                    <div id="senha_feedback" class="invalid-feedback"></div>
                 </div>
                 <button class="btn btn-dark w-50 mt-3 py-2" id="btn-login">
                     Entrar
