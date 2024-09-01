@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Jacquard+12&family=Jersey+10&family=Oxanium:wght@200..800&family=Pacifico&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&family=Tiny5&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -20,26 +21,10 @@ main {
     height: 90vh;
 }
 
-#menu {
-    width: 20vw;
-    background-color: #333;
-}
-
-#menu nav {
-    display: flex;
-    padding-top: 2rem;
-}
-
-#menu ul {
-    padding: 0;
-    list-style: none;
-}
-
-#menu ul li {
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 2px solid #fff;
+main label {
+    color: blueviolet;
+    font-family: 'Tiny5', monospace;
+    font-size: 1.2rem;
 }
 
 body a {
@@ -50,5 +35,39 @@ body a {
 }
 
 #conteudo {
-    width: 80vw;
+    width: 84vw;
+}
+
+#btn-login {
+    color: #fff;
+    font-size: clamp(0.8rem, 2vw, 1.4rem);
+    font-weight: bold;
+}
+
+.invisible {
+    display: none;
+}
+
+input {
+    width: 100%;
+    margin-top: .25rem;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+input:focus {
+    padding: .5rem;
+    transition: 0.3s;
+}
+
+
+/* Perfil */
+#image {
+    width: max(10%, 10rem);
+    border: 2px solid #333;
+    margin: 1.5rem 0;
+}
+
+.form-group p {
+    border-bottom: 2px solid #333;
 }

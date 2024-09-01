@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Jacquard+12&family=Jersey+10&family=Oxanium:wght@200..800&family=Pacifico&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&family=Tiny5&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxanium:wght@200..800&family=Rubik+Mono+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -21,19 +22,31 @@ main {
     font-family: 'Tiny5', monospace;
 }
 
-main h1, #btn-login{
+main p, a, label {
+    font-size: 1.3rem;
+}
+
+main h1, #btn-login, #btn-register {
     font-family: 'Rubik Mono One', sans-serif;
 }
 
 main #formulario, main #content{
     height: 100%;
-    padding: 2rem;
 }
 
 main #content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     width: 40%;
     color: white;
     background-color: blueviolet;
+}
+
+main #content img {
+    width: max(100%, 20rem);
 }
 
 main #formulario {
@@ -41,7 +54,139 @@ main #formulario {
     color: blueviolet;
 }
 
+main #formulario input {
+    width: 100%;
+    margin-top: .25rem;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+main #formulario input:focus {
+    padding: .5rem;
+    transition: 0.3s;
+}
+
+main #formulario button {
+    color: white;
+    background-color: #333;
+    padding: .5rem;
+    border: none;
+    border-radius: .25rem;
+    width: 50%;
+}
+
+main #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+main .container {
+    width: 50%;
+}
+
+.form-group {
+    width: 50%;
+    margin: 0.5rem 0;
+}
+
+main p {
+    text-align: center;
+    padding: 0 .5rem;
+}
+
 main a {
     color: blueviolet;
     text-decoration: none;
+}
+
+main button {
+    margin: 1.5rem 0;
+}
+
+main #formulario .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    margin: 0;
+    padding: 0;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    main #content {
+        display: none;
+    }
+    main #formulario {
+        width: 100%;
+    }
+    .form-group {
+        width: 80%;
+        padding-top: .75rem;
+    }
+    main #formulario #btn-login{
+        width: 80%;
+    }
+    main #formulario #btn-register{
+        width: 75%;
+    }
+    main .container {
+        width: 75%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    main h1 {
+        font-size: 1.6rem;
+    }
+    main #content {
+        width: 35%;
+    }
+    main #formulario {
+        width: 65%;
+    }
+    .form-group {
+        width: 70%;
+    }
+    main #formulario #btn-login {
+        width: 70%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    main p, a, label {
+        font-size: 1rem;
+    }
+    main #formulario #btn-register{
+        width: 75%;
+    }
+    main .container {
+        width: 75%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    main #formulario #btn-register{
+        width: 50%;
+    }
+    main .container {
+        width: 50%;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .form-group {
+        width: 50%;
+    }
+    main #formulario #btn-login {
+        width: 50%;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
 }

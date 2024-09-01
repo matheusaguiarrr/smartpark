@@ -86,17 +86,7 @@
         }
         public static function listarTodos(){
             $sql = "SELECT * FROM veiculos";
-            $result = Database::getResultsFromQuery($sql);
-            if($result){
-                $veiculos = [];
-                while($row = $result){
-                    $veiculo = new Veiculo($row['motorista'], $row['cor'], $row['ano'], $row['marca'], $row['modelo'], $row['categoria'], $row['placa']);
-                    $veiculo->setId($row['id']);
-                    $veiculos[] = $veiculo;
-                }
-                return $veiculos;
-            }
-            return null;
+            return Database::getResultsFromQuery($sql);
         }
         public static function listarUm($id){
             $sql = "SELECT * FROM veiculos WHERE id = ?";

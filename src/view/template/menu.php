@@ -1,27 +1,38 @@
 <main>
-        <section id="menu">
-            <nav class="ps-5">
-                <ul>
-                    <li>
+    <section id="menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="IndexController.php">
                         <i class="fa-solid fa-house"></i>
-                        <a class="ms-3" href="IndexController.php">Home</a>
-                    </li>
-                    <li>
+                        <span class="menu-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="EstacionamentoController.php">
                         <i class="fa-solid fa-warehouse"></i>
-                        <a class="ms-3" href="EstacionamentoController.php">Estacionamento</a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-car-side"></i>
-                        <a class="ms-3" href="VeiculoController.php">Veículos</a>
-                    </li>
-                    <li>
+                        <span class="menu-text">Estacionamento</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="VeiculoController.php">
+                        <i title="Veículos" class="fa-solid fa-car-side"></i>
+                        <span class="menu-text">Veículos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="MotoristaController.php">
                         <i class="fa-solid fa-id-card"></i>
-                        <a class="ms-3" href="MotoristaController.php">Motoristas</a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-user"></i>
-                        <a class="ms-3" href="PerfilController.php">Perfil</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+                        <span class="menu-text">Motoristas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="PerfilController.php">
+                        <i class="fa-solid fa-user" href="PerfilController.php"></i>    
+                        <span class="menu-text">Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button id="btn-menu"><i class="fa-solid fa-chevron-left"></i></button>
+    </section>

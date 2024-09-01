@@ -1,0 +1,125 @@
+#menu {
+    width: 16vw;
+    display: flex;
+    background-color: #333;
+}
+
+#menu nav {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+#menu ul {
+    padding: 0;
+    padding-top: 2rem;
+    list-style: none;
+}
+
+#menu button {
+    width: 15%;
+    background-color: transparent;
+    border: none;
+}
+
+#menu button:hover {
+    background-color: #444;
+    transition: 0.3s;
+}
+
+#menu button i:hover {
+    font-size: max(0.4rem, 1.5rem);
+    transition: 0.3s;
+}
+
+#menu button i {
+    color: #fff;
+    font-size: max(0.7rem, 1.2rem);
+    cursor: pointer;
+}
+
+#menu ul li {
+    color: #fff;
+    padding: 10px;
+    margin-left: .5rem;
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+}
+
+#menu ul li span {
+    margin-left: 1rem;
+}
+
+#menu ul li a {
+    display: flex;
+    align-items: center;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    #menu {
+        width: 15vw;
+    }
+    .menu-text {
+        display: none;
+    }
+    #menu ul li i {
+        font-size: .75rem;
+    }
+    #menu button {
+        display: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+    .menu-text {
+        display: none;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #menu {
+        width: 20vw;
+    }
+    #menu ul li i {
+        font-size: .6rem;
+    }
+    #menu ul li span {
+        font-size: .7rem;
+        margin-left: .5rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #menu ul li i {
+        font-size: .6rem;
+    }
+    #menu ul li span {
+        font-size: 1rem;
+        margin-left: .75rem;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    #menu ul li i {
+        font-size: .8rem;
+    }
+    #menu ul li span {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    #menu ul li i {
+        font-size: 1rem;
+    }
+    #menu ul li span {
+        font-size: 1.5rem;
+    }
+}

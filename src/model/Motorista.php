@@ -49,16 +49,16 @@ class Motorista {
         $sql = "SELECT * FROM motoristas WHERE id = ?";
         $params = array($id);
         $result = Database::getResultFromQuery($sql, $params);
-        return new Motorista($result['cpf'], $result['nome'], $result['telefone']);
+        return new Motorista($result->cpf, $result->nome, $result->telefone);
     }
     public function atualizar(){
         $sql = "UPDATE motoristas SET cpf = ?, nome = ?, telefone = ? WHERE id = ?";
         $params = array($this->cpf, $this->nome, $this->telefone, $this->id);
         return Database::executeSQL($sql, $params);
     }
-    public function deletar(){
+    public static function deletar($id){
         $sql = "DELETE FROM motoristas WHERE id = ?";
-        $params = array($this->id);
+        $params = array($id);
         return Database::executeSQL($sql, $params);
     }
 }

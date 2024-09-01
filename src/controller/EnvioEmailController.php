@@ -13,7 +13,7 @@
         $email->Host = 'smtp.gmail.com'; // Defina o servidor SMTP do Gmail
         $email->SMTPAuth = true;
         $email->Username = 'matheusdeveloper68@gmail.com';
-        $email->Password = 'sua_senha_aqui'; // Melhor usar uma variável de ambiente para armazenar a senha
+        $email->Password = 'pfwh ifus yfvx jmez'; // Melhor usar uma variável de ambiente para armazenar a senha
         $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilitar criptografia TLS
         $email->Port = 587; // Porta para TLS
 
