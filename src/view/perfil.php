@@ -2,17 +2,15 @@
         <h1>Perfil</h1>
         <form id="form" class="form-login w-100" action="../controller/PerfilController.php" method="post">
             <input type="hidden" name="id" value="<?php echo $usuario->getId(); ?>">
-            <img id="image" src="../../public/assets/img/logo.png" alt="">
+            <img id="image" src="../../public/assets/img/user-image.webp" alt="">
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Informe o Nome" value="<?php echo $usuario->getNome(); ?>" autofocus>
-                    <div id="nome_feedback" class="invalid-feedback"></div>
+                    <p><?php echo $usuario->getNome(); ?></p>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone" name="telefone" placeholder="Informe o telefone" value="<?php echo $usuario->getTelefone(); ?>">
-                    <div id="telefone_feedback" class="invalid-feedback"></div>
+                    <p><?php echo $usuario->getTelefone(); ?></p>
                 </div>
             </div>
             <div class="row">
@@ -25,6 +23,6 @@
                     <p><?php echo $usuario->getEmail(); ?></p>
                 </div>
             </div>
+            <button type="submit" name="editar" class="btn-update-lg">Editar</button>
         </form>
-        <button type="submit" name="cadastrar" class="btn btn-primary px-5">Salvar</button>
     </div>

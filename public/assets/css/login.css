@@ -42,7 +42,7 @@ main #content {
     height: 100%;
     width: 40%;
     color: white;
-    background-color: blueviolet;
+    background-color: #F0AC48;
 }
 
 main #content img {
@@ -51,7 +51,7 @@ main #content img {
 
 main #formulario {
     width: 60%;
-    color: blueviolet;
+    color: #F0AC48;
 }
 
 main #formulario input {
@@ -73,6 +73,11 @@ main #formulario button {
     border: none;
     border-radius: .25rem;
     width: 50%;
+}
+
+main #formulario button:hover {
+    font-size: 1.2rem;
+    transition: 0.3s;
 }
 
 main #form {
@@ -99,7 +104,7 @@ main p {
 }
 
 main a {
-    color: blueviolet;
+    color: #F0AC48;
     text-decoration: none;
 }
 

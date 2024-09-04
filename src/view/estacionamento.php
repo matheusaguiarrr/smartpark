@@ -67,7 +67,7 @@
                             <div id="complemento_feedback" class="invalid-feedback"></div>
                         </div>
                     </div>
-                    <button type="submit" name="cadastrar" class="btn btn-dark w-50 mt-5 mb-4 py-2" id="btn-login">
+                    <button type="submit" name="cadastrar" class="btn-register w-50">
                         Salvar
                     </button>
                 </form>

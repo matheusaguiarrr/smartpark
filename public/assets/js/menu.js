@@ -22,6 +22,7 @@ function esconderExibirMenu() {
         }
         else {
             $('#menu').css('width', '6vw');
+            $('.icon').css('font-size', '1.3rem');
             $('#conteudo').css('width', '95vw');
             $('#btn-menu').css('width', '20%');
         }

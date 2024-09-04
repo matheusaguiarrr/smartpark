@@ -38,12 +38,13 @@
     cursor: pointer;
 }
 
-#menu ul li {
+#menu ul li a {
     color: #fff;
     padding: 10px;
     margin-left: .5rem;
     cursor: pointer;
     border-bottom: 2px solid #fff;
+    text-decoration: none;
 }
 
 #menu ul li span {
@@ -53,6 +54,12 @@
 #menu ul li a {
     display: flex;
     align-items: center;
+}
+
+#menu ul li a:hover {
+    color: #F0AC48;
+    border-bottom: 2px solid #F0AC48;
+    transition: 0.3s;
 }
 
 /* X-Small devices (portrait phones, less than 576px) */

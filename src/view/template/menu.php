@@ -4,31 +4,31 @@
             <ul>
                 <li>
                     <a href="IndexController.php">
-                        <i class="fa-solid fa-house"></i>
+                        <i class="icon fa-solid fa-house"></i>
                         <span class="menu-text">Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="EstacionamentoController.php">
-                        <i class="fa-solid fa-warehouse"></i>
+                        <i class="icon fa-solid fa-warehouse"></i>
                         <span class="menu-text">Estacionamento</span>
                     </a>
                 </li>
                 <li>
                     <a href="VeiculoController.php">
-                        <i title="Veículos" class="fa-solid fa-car-side"></i>
+                        <i title="Veículos" class="icon fa-solid fa-car-side"></i>
                         <span class="menu-text">Veículos</span>
                     </a>
                 </li>
                 <li>
                     <a href="MotoristaController.php">
-                        <i class="fa-solid fa-id-card"></i>
+                        <i class="icon fa-solid fa-id-card"></i>
                         <span class="menu-text">Motoristas</span>
                     </a>
                 </li>
                 <li>
                     <a href="PerfilController.php">
-                        <i class="fa-solid fa-user" href="PerfilController.php"></i>    
+                        <i class="icon fa-solid fa-user" href="PerfilController.php"></i>    
                         <span class="menu-text">Perfil</span>
                     </a>
                 </li>

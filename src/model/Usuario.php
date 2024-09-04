@@ -58,6 +58,11 @@ class Usuario {
         $params = array($this->cpf, $this->nome, $this->email, $senhaCriptografada, $this->telefone);
         return Database::executeSQL($sql, $params);
     }
+    public function atualizar(){
+        $sql = "UPDATE usuarios SET nome = ?, telefone = ? WHERE id = ?";
+        $params = array($this->nome, $this->telefone, $this->id);
+        return Database::executeSQL($sql, $params);
+    }
     public static function autenticar($email, $senha){
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $params = array($email);
