@@ -22,6 +22,7 @@
                     <button type="submit" name="cadastrar" class="btn-register">Cadastrar</button>
                 </form>
                 <?php
+                    isset($motoristas) ? $motoristas : $motoristas = null;
                     if(!is_null($motoristas)){
                         echo "<table class='table table-bordered'>";
                         echo "<thead class='table-dark'>";
@@ -70,11 +71,6 @@
                             <label for="nome">Nome</label>
                             <input type="text" id="nomeModal" name="nome" placeholder="Informe o Nome" autofocus>
                             <div id="nome_feedback" class="invalid-feedback"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="cpf">CPF</label>
-                            <input type="text" id="cpfModal" name="cpf" placeholder="Informe o CPF">
-                            <div id="cpf_feedback" class="invalid-feedback"></div>
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>

@@ -12,7 +12,12 @@
     }
     if(isset($_POST['buscar'])){
         $motorista = Motorista::buscarPorId($_POST['id']);
-        echo json_encode(['id' => $_POST['id'], 'nome' => $motorista->getNome(), 'cpf' => $motorista->getCpf(), 'telefone' => $motorista->getTelefone()]);
+        echo json_encode(
+            [
+                'id' => $_POST['id'], 
+                'nome' => $motorista->getNome(), 
+                'telefone' => $motorista->getTelefone()
+            ]);
         return false;
     }
     if(isset($_POST['editar'])){

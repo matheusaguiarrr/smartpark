@@ -10,14 +10,12 @@ $(document).ready(function() {
             },
             beforeSend : function(){
                 $("#nomeModal").val('Carregando...');
-                $("#cpfModal").val('Carregando...');
                 $("#telefoneModal").val('Carregando...');
             },
             success : function(data){
                 let motorista = JSON.parse(data);
                 $("#idModal").val(motorista.id);
                 $("#nomeModal").val(motorista.nome);
-                $("#cpfModal").val(motorista.cpf);
                 $("#telefoneModal").val(motorista.telefone);
             }
         });
