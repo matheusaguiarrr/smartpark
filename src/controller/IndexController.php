@@ -4,4 +4,11 @@
         header('Location: LoginController.php');
     }
 require_once '../config/load.php';
-loadTemplateView('index');
+require_once '../model/Estacionamento.php';
+$estacionamento = Estacionamento::listar($_SESSION['id']);
+if($estacionamento){
+    loadTemplateView('index', ['estacionamento' => $estacionamento]);
+}
+else {
+    loadTemplateView('index');
+}

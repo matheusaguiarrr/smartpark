@@ -14,7 +14,8 @@ require_once 'Database.php';
         private $rua;
         private $numero;
         private $complemento;
-        public function __construct($proprietario, $id, $cnpj, $nome, $telefone, $vagas, $cep, $estado, $cidade, $bairro, $rua, $numero, $complemento) {
+        private $imagem;
+        public function __construct($proprietario, $id, $cnpj, $nome, $telefone, $vagas, $cep, $estado, $cidade, $bairro, $rua, $numero, $complemento, $imagem) {
             $this->proprietario = $proprietario;
             $this->id = $id;
             $this->cnpj = $cnpj;
@@ -28,6 +29,7 @@ require_once 'Database.php';
             $this->rua = $rua;
             $this->numero = $numero;
             $this->complemento = $complemento;
+            $this->imagem = $imagem;
         }
         //Getters
         public function getProprietario() {
@@ -69,6 +71,9 @@ require_once 'Database.php';
         public function getComplemento() {
             return $this->complemento;
         }
+        public function getImagem() {
+            return $this->imagem;
+        }
         //Setters
         public function setProprietario($proprietario) {
             $this->proprietario = $proprietario;
@@ -109,9 +114,22 @@ require_once 'Database.php';
         public function setComplemento($complemento) {
             $this->complemento = $complemento;
         }
+        public function setImagem($imagem) {
+            $this->imagem = $imagem;
+        }
         public function cadastrar(){
             $sql = "INSERT INTO estacionamentos (proprietario, cnpj, nome, telefone, cep, estado, cidade, bairro, rua, numero, complemento, quantidade_vagas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $params = array($this->proprietario, $this->cnpj, $this->nome, $this->telefone, $this->cep, $this->estado, $this->cidade, $this->bairro, $this->rua, $this->numero, $this->complemento, $this->vagas);
             return Database::executeSQL($sql, $params);
+        }
+        public function cadastrarComImagem(){
+            $sql = "INSERT INTO estacionamentos (proprietario, cnpj, nome, telefone, cep, estado, cidade, bairro, rua, numero, complemento, quantidade_vagas, imagem) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $params = array($this->proprietario, $this->cnpj, $this->nome, $this->telefone, $this->cep, $this->estado, $this->cidade, $this->bairro, $this->rua, $this->numero, $this->complemento, $this->vagas, $this->imagem);
+            return Database::executeSQL($sql, $params);
+        }
+        public static function listar($proprietario){
+            $sql = "SELECT * FROM estacionamentos WHERE proprietario = ?";
+            $params = array($proprietario);
+            return Database::getResultFromQuery($sql, $params);
         }
     }

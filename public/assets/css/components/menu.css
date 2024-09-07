@@ -1,12 +1,27 @@
 #menu {
     width: 16vw;
     display: flex;
+    align-items: center;
     background-color: #333;
+}
+
+#menu #menu-img{
+    width: 100%;
+    height: 10vh;
+}
+
+#menu img {
+    border: 3px solid #F0AC48;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+    width: 75%;
+    height: 25vh;
 }
 
 #menu nav {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 90%;
 }
 

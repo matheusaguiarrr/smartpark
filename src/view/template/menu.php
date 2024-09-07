@@ -1,6 +1,14 @@
 <main>
     <section id="menu">
         <nav>
+            <?php
+                if($estacionamento){
+                    echo "
+                
+                        <img src='/src/imagens/$estacionamento->imagem' alt='Logo Estacionamento'>
+                    ";
+                }
+            ?>
             <ul>
                 <li>
                     <a href="IndexController.php">

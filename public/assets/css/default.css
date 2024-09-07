@@ -65,6 +65,10 @@ select {
     border-bottom: 2px solid var(--secondary-color);
 }
 
+.form-group input[type="file"] {
+    border: none;
+}
+
 input:focus {
     padding: .5rem;
     transition: 0.3s;

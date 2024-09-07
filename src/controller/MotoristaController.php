@@ -4,6 +4,7 @@
         header('Location: login.php');
     }
     require_once '../model/Motorista.php';
+    require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
     if(isset($_POST['cadastrar'])){
         $motorista = new Motorista($_POST['cpf'], $_POST['nome'], $_POST['telefone']);
@@ -23,8 +24,15 @@
         Motorista::deletar($_POST['id']);
     }
     $motoristas = Motorista::listar();
-    if(!is_null($motoristas)){
+    $estacionamento = Estacionamento::listar($_SESSION['id']);
+    if(!is_null($motoristas) && !is_null($estacionamento)){
+        loadTemplateView('motorista', ['motoristas' => $motoristas, 'estacionamento' => $estacionamento]);
+    }
+    else if(!is_null($motoristas)){
         loadTemplateView('motorista', ['motoristas' => $motoristas]);
+    }
+    else if(!is_null($estacionamento)){
+        loadTemplateView('motorista', ['estacionamento' => $estacionamento]);
     }
     else {
         loadTemplateView('motorista');

@@ -1,7 +1,14 @@
         <section id="conteudo">
             <div class="container w-75 py-5">
                 <h1 class="pb-3">Estacionamento</h1>
-                <form id="form" class="form-login" action="../controller/EstacionamentoController.php" method="post">
+                <form id="form" class="form-login" action="../controller/EstacionamentoController.php" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="foto">Foto</label>
+                            <input type="file" id="foto" name="foto">
+                            <div id="foto_feedback" class="invalid-feedback"></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="nome">Nome</label>
