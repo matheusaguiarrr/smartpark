@@ -7,7 +7,7 @@
     require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
     if(isset($_POST['cadastrar'])){
-        $motorista = new Motorista($_POST['cpf'], $_POST['nome'], $_POST['telefone']);
+        $motorista = new Motorista($_POST['nome'], $_POST['telefone'], $_POST['cpf']);
         $motorista->cadastrar();
     }
     if(isset($_POST['buscar'])){
@@ -21,7 +21,7 @@
         return false;
     }
     if(isset($_POST['editar'])){
-        $motorista = new Motorista($_POST['cpf'], $_POST['nome'], $_POST['telefone']);
+        $motorista = new Motorista($_POST['nome'], $_POST['telefone']);
         $motorista->setId($_POST['id']);
         $motorista->atualizar();
     }

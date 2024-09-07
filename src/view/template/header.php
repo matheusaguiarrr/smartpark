@@ -12,7 +12,10 @@
     <script defer src="../../public/assets/js/menu.js"></script>
     <script defer src="../../public/assets/js/estacionamento.js"></script>
     <script defer src="../../public/assets/js/estacionamentoPerfil.js"></script>
-    <script defer src="../../public/assets/js/motorista.js"></script>
+    <!-- Modal -->
+    <script src="../../public/assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/assets/css/bootstrap/js/bootstrap.esm.min.js"></script>
+    <script src="../../public/assets/css/bootstrap/js/bootstrap.min.js"></script>
     <title>SmartPark</title>
 </head>
 <body>

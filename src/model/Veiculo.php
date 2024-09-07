@@ -75,8 +75,8 @@
             return Database::executeSQL($sql, $params);
         }
         public function atualizar(){
-            $sql = "UPDATE veiculos SET motorista = ?, cor = ?, ano = ?, marca = ?, modelo = ?, categoria = ?, placa = ? WHERE id = ?";
-            $params = array($this->motorista, $this->cor, $this->ano, $this->marca, $this->modelo, $this->categoria, $this->placa, $this->id);
+            $sql = "UPDATE veiculos SET motorista = ?, cor = ?, ano = ?, marca = ?, modelo = ?, categoria = ? WHERE id = ?";
+            $params = array($this->motorista, $this->cor, $this->ano, $this->marca, $this->modelo, $this->categoria, $this->id);
             return Database::executeSQL($sql, $params);
         }
         public function excluir(){

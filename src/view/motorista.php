@@ -88,8 +88,6 @@
             </div>
         </section>
     </main>
+    <script defer src="../../public/assets/js/motorista.js"></script>
 </body>
-    <script src="../../public/assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../public/assets/css/bootstrap/js/bootstrap.esm.min.js"></script>
-    <script src="../../public/assets/css/bootstrap/js/bootstrap.min.js"></script>
 </html>

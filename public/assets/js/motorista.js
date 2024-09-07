@@ -13,6 +13,7 @@ $(document).ready(function() {
                 $("#telefoneModal").val('Carregando...');
             },
             success : function(data){
+                console.log(data);
                 let motorista = JSON.parse(data);
                 $("#idModal").val(motorista.id);
                 $("#nomeModal").val(motorista.nome);

@@ -5,7 +5,7 @@ class Motorista {
     private $cpf;
     private $nome;
     private $telefone;
-    public function __construct($cpf, $nome, $telefone) {
+    public function __construct($nome, $telefone, $cpf = null) {
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->telefone = $telefone;
@@ -49,11 +49,11 @@ class Motorista {
         $sql = "SELECT * FROM motoristas WHERE id = ?";
         $params = array($id);
         $result = Database::getResultFromQuery($sql, $params);
-        return new Motorista($result->cpf, $result->nome, $result->telefone);
+        return new Motorista($result->nome, $result->telefone, $result->cpf);
     }
     public function atualizar(){
-        $sql = "UPDATE motoristas SET cpf = ?, nome = ?, telefone = ? WHERE id = ?";
-        $params = array($this->cpf, $this->nome, $this->telefone, $this->id);
+        $sql = "UPDATE motoristas SET nome = ?, telefone = ? WHERE id = ?";
+        $params = array($this->nome, $this->telefone, $this->id);
         return Database::executeSQL($sql, $params);
     }
     public static function deletar($id){

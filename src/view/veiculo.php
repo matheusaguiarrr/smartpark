@@ -46,6 +46,7 @@
                         <button type="submit" name="cadastrar" class="btn-register">Cadastrar</button>
                 </form>
                 <?php
+                    isset($veiculos) ? $veiculos : $veiculos = null;
                     if(!is_null($veiculos)){
                         echo "<table class='table table-bordered'>";
                         echo "<thead class='table-dark'>";
@@ -88,7 +89,65 @@
                     }
                 ?>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar veículo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form" class="form-login" action="../controller/VeiculoController.php" method="post">
+                                <input type="hidden" name="id" id="idModal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="motoristaModal">Motorista</label>
+                                        <select name="motoristaModal" id="motoristaModal">
+                                            <option value="">------</option>
+                                            <?php
+                                                foreach($motoristas as $motorista){
+                                                    echo "<option value='{$motorista->id}'>{$motorista->nome}</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="corModal">Cor</label>
+                                        <input type="text" id="corModal" name="corModal" placeholder="Informe a Cor">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="anoModal">Ano</label>
+                                        <input type="text" id="anoModal" name="anoModal" placeholder="Informe o Ano">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label for="marcaModal">Marca</label>
+                                        <input type="text" id="marcaModal" name="marcaModal" placeholder="Informe a Marca">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="modeloModal">Modelo</label>
+                                        <input type="text" id="modeloModal" name="modeloModal" placeholder="Informe o Modelo">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="categoriaModal">Categoria</label>
+                                        <input type="text" id="categoriaModal" name="categoriaModal" placeholder="Informe a Categoria">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-delete-lg" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" name="editar" class="btn-register">Salvar</button>
+                        </div>    
+                            </form>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+    <script defer src="../../public/assets/js/veiculo.js"></script>
 </body>
 </html>

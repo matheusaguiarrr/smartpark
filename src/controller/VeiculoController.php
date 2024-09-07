@@ -15,12 +15,40 @@
         $veiculo->cadastrar();
         header('Location: VeiculoController.php');
     }
+    if(isset($_POST['buscar'])){
+        $veiculo = Veiculo::listarUm($_POST['id']);
+        echo json_encode(
+            [
+                'id' => $veiculo->getId(),
+                'motorista' => $veiculo->getMotorista(),
+                'cor' => $veiculo->getCor(),
+                'ano' => $veiculo->getAno(),
+                'marca' => $veiculo->getMarca(),
+                'modelo' => $veiculo->getModelo(),
+                'categoria' => $veiculo->getCategoria(),
+                'placa' => $veiculo->getPlaca()
+            ]);
+        return false;
+    }
+    if(isset($_POST['editar'])){
+        $veiculo = new Veiculo($_POST['motoristaModal'], $_POST['corModal'], $_POST['anoModal'], $_POST['marcaModal'], $_POST['modeloModal'], $_POST['categoriaModal'], $_POST['placaModal']);
+        $veiculo->setId($_POST['id']);
+        $veiculo->atualizar();
+        header('Location: VeiculoController.php');
+    }
     if(isset($_POST['excluir'])){
         $veiculo = Veiculo::listarUm($_POST['id']);
         $veiculo->excluir();
         header('Location: VeiculoController.php');
     }
-    if(!is_null($veiculos) && !is_null($motoristas)){
+    if(!is_null($estacionamento) && !is_null($veiculos) && !is_null($motoristas)){
+        foreach($veiculos as $veiculo){
+            $motorista = Motorista::buscarPorId($veiculo->motorista);
+            $veiculo->motorista = $motorista->getNome();
+        }
+        loadTemplateView('veiculo', ['estacionamento' => $estacionamento, 'veiculos' => $veiculos, 'motoristas' => $motoristas]);
+    }
+    else if(!is_null($veiculos) && !is_null($motoristas)){
         foreach($veiculos as $veiculo){
             $motorista = Motorista::buscarPorId($veiculo->motorista);
             $veiculo->motorista = $motorista->getNome();
