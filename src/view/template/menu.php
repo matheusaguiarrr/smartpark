@@ -3,9 +3,9 @@
         <nav>
             <?php
                 if($estacionamento){
+                    $imagem = $estacionamento->getImagem();
                     echo "
-                
-                        <img src='/src/imagens/$estacionamento->imagem' alt='Logo Estacionamento'>
+                        <img src='/src/imagens/$imagem' alt='Logo Estacionamento'>
                     ";
                 }
             ?>

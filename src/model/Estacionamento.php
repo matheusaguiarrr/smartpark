@@ -127,9 +127,29 @@ require_once 'Database.php';
             $params = array($this->proprietario, $this->cnpj, $this->nome, $this->telefone, $this->cep, $this->estado, $this->cidade, $this->bairro, $this->rua, $this->numero, $this->complemento, $this->vagas, $this->imagem);
             return Database::executeSQL($sql, $params);
         }
+        public function atualizar(){
+            $sql = "UPDATE estacionamentos SET nome = ?, telefone = ?, cep = ?, estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, complemento = ?, quantidade_vagas = ? WHERE id = ?";
+            $params = array($this->nome, $this->telefone, $this->cep, $this->estado, $this->cidade, $this->bairro, $this->rua, $this->numero, $this->complemento, $this->vagas, $this->id);
+            return Database::executeSQL($sql, $params);
+        }
+        public function atualizarComImagem(){
+            $sql = "UPDATE estacionamentos SET nome = ?, telefone = ?, cep = ?, estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ?, complemento = ?, quantidade_vagas = ?, imagem = ? WHERE id = ?";
+            $params = array($this->nome, $this->telefone, $this->cep, $this->estado, $this->cidade, $this->bairro, $this->rua, $this->numero, $this->complemento, $this->vagas, $this->imagem, $this->id);
+            return Database::executeSQL($sql, $params);
+        }
+        public function deletar(){
+            $sql = "DELETE FROM estacionamentos WHERE id = ?";
+            $params = array($this->id);
+            return Database::executeSQL($sql, $params);
+        }
         public static function listar($proprietario){
             $sql = "SELECT * FROM estacionamentos WHERE proprietario = ?";
             $params = array($proprietario);
-            return Database::getResultFromQuery($sql, $params);
+            $result = Database::getResultFromQuery($sql, $params);
+            if($result){
+                $estacionamento = new Estacionamento($result->proprietario, $result->id, $result->cnpj, $result->nome, $result->telefone, $result->quantidade_vagas, $result->cep, $result->estado, $result->cidade, $result->bairro, $result->rua, $result->numero, $result->complemento, $result->imagem);
+                return $estacionamento;
+            }
+            return null;
         }
     }

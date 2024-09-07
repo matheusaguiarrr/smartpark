@@ -11,6 +11,7 @@
     <script defer src="../../public/assets/js/jquery-3.7.1.min.js"></script>
     <script defer src="../../public/assets/js/menu.js"></script>
     <script defer src="../../public/assets/js/estacionamento.js"></script>
+    <script defer src="../../public/assets/js/estacionamentoPerfil.js"></script>
     <script defer src="../../public/assets/js/motorista.js"></script>
     <title>SmartPark</title>
 </head>
