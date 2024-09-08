@@ -81,5 +81,6 @@
             </div>
         </section>
     </main>
+    <script defer src="../../public/assets/js/estacionamento.js"></script>
 </body>
 </html>

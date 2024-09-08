@@ -7,12 +7,15 @@ class Usuario {
     private $email;
     private $senha;
     private $telefone;
-    public function __construct($cpf, $nome, $email, $senha, $telefone) {
+    private $imagem;
+    public function __construct($cpf, $nome, $email, $senha, $telefone, $imagem = null, $id = null){
+        $this->id = $id;
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
         $this->telefone = $telefone;
+        $this->imagem = $imagem;
     }
     //Getters
     public function getId() {
@@ -33,6 +36,9 @@ class Usuario {
     public function getTelefone() {
         return $this->telefone;
     }
+    public function getImagem() {
+        return $this->imagem;
+    }
     //Setters
     public function setId($id) {
         $this->id = $id;
@@ -52,6 +58,9 @@ class Usuario {
     public function setTelefone($telefone) {
         $this->telefone = $telefone;
     }
+    public function setImagem($imagem) {
+        $this->imagem = $imagem;
+    }
     public function cadastrar(){
         $sql = "INSERT INTO usuarios (cpf, nome, email, senha, telefone) VALUES (?,?,?,?,?)";
         $senhaCriptografada = password_hash($this->senha, PASSWORD_DEFAULT);
@@ -61,6 +70,11 @@ class Usuario {
     public function atualizar(){
         $sql = "UPDATE usuarios SET nome = ?, telefone = ? WHERE id = ?";
         $params = array($this->nome, $this->telefone, $this->id);
+        return Database::executeSQL($sql, $params);
+    }
+    public function atualizarComImagem(){
+        $sql = "UPDATE usuarios SET nome = ?, telefone = ?, imagem = ? WHERE id = ?";
+        $params = array($this->nome, $this->telefone, $this->imagem, $this->id);
         return Database::executeSQL($sql, $params);
     }
     public static function autenticar($email, $senha){
@@ -82,8 +96,7 @@ class Usuario {
         $params = array($id);
         $result = Database::getResultFromQuery($sql, $params);
         if($result){
-            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone);
-            $usuario->setId($result->id);
+            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->imagem, $result->id);
             return $usuario;
         }
         return null;

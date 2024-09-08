@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="../../public/assets/css/bootstrap/css/bootstrap.css">
     <script defer src="../../public/assets/js/jquery-3.7.1.min.js"></script>
     <script defer src="../../public/assets/js/menu.js"></script>
-    <script defer src="../../public/assets/js/estacionamento.js"></script>
-    <script defer src="../../public/assets/js/estacionamentoPerfil.js"></script>
     <!-- Modal -->
     <script src="../../public/assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../public/assets/css/bootstrap/js/bootstrap.esm.min.js"></script>

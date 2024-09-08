@@ -156,6 +156,6 @@ input:focus {
 
 #image {
     width: max(10%, 10rem);
-    border: 2px solid var(--secondary-color);
+    border: 3px solid var(--primary-color);
     margin: 1.5rem 0;
 }
