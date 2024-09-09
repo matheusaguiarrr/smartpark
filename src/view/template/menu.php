@@ -23,6 +23,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="VagaController.php">
+                        <i class="icon fa-solid fa-parking"></i>
+                        <span class="menu-text">Vagas</span>
+                    </a>
+                <li>
                     <a href="VeiculoController.php">
                         <i title="Veículos" class="icon fa-solid fa-car-side"></i>
                         <span class="menu-text">Veículos</span>

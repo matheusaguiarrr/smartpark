@@ -159,3 +159,30 @@ input:focus {
     border: 3px solid var(--primary-color);
     margin: 1.5rem 0;
 }
+
+.container-vaga {
+    border: 3px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+.container-vaga p {
+    text-transform: capitalize;
+}
+
+.btn-vaga {
+    border: none;
+    cursor: pointer;
+    margin: 0rem .4rem;
+    background-color: transparent;
+}
+
+.btn-vaga-update {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.btn-vaga-delete {
+    color: red;
+    font-size: 1.2rem;
+}
