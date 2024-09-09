@@ -15,7 +15,7 @@ if(isset($_POST['cadastrar'])){
         header('Location: VagaController.php');
     }
     else {
-        echo "Erro ao cadastrar vaga";
+        echo "Limite de vagas atingido!";
     }
 }
 if(isset($_POST['buscar'])){

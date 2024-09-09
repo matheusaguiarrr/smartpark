@@ -20,11 +20,14 @@ class Database {
             die("Erro: " . $exception->getMessage());
         }
     }
-    public static function getResultFromQuery($sql, $params = []){
+    public static function getResultFromQuery($sql, $params = [], $personalizado = false){
         $connection = self::getConnect();
         try{
             $stmt = $connection->prepare($sql);
             $stmt->execute($params);
+            if($personalizado == true){
+                return $stmt;
+            }
             return $stmt->fetch(\PDO::FETCH_OBJ);
         } catch(\PDOException $exception){
             die("Erro: " . $exception->getMessage());

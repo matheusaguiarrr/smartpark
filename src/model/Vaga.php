@@ -50,8 +50,9 @@ class Vaga {
     }
     public function cadastrar($estacionamento){
         $sql = "SELECT count(*) FROM vagas WHERE estacionamento = ?";
-        $numeroVagas = Database::getResultFromQuery($sql, array($this->estacionamento));
-        if($numeroVagas == $estacionamento->getVagas()){
+        $numeroVagas = Database::getResultFromQuery($sql, array($this->estacionamento), true);
+        $numeroVagas = $numeroVagas->fetchColumn();
+        if($numeroVagas >= $estacionamento->getVagas()){
             return false;
         }
         $sql = "INSERT INTO vagas (estacionamento, identificador_vaga, status) VALUES (?, ?, ?)";
