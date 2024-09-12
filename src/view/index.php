@@ -1,5 +1,5 @@
         <section id="conteudo">
-            <div class="container">
+            <div class="container w-75 py-5">
                 <div class="row">
                     <h1>Registrar Entrada</h1>
                 </div>

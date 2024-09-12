@@ -7,6 +7,7 @@
     require_once '../model/Motorista.php';
     require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
+    require_once '../config/util.php';
     $motoristas = Motorista::listar();
     $veiculos = Veiculo::listarTodos();
     $estacionamento = Estacionamento::listar($_SESSION['id']);

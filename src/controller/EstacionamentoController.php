@@ -4,6 +4,7 @@
         header('Location: login.php');
     }
 require_once '../config/load.php';
+require_once '../config/util.php';
 require_once '../model/Estacionamento.php';
 if(isset($_POST['cadastrar'])){
     if(isset($_FILES['foto'])){

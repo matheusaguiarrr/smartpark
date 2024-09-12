@@ -6,6 +6,7 @@
     require_once '../model/Usuario.php';
     require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
+    require_once '../config/util.php';
     $usuario = Usuario::buscar($_SESSION['id']);
     $estacionamento = Estacionamento::listar($_SESSION['id']);
     if(isset($_POST['buscar'])){

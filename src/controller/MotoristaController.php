@@ -6,6 +6,7 @@
     require_once '../model/Motorista.php';
     require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
+    require_once '../config/util.php';
     if(isset($_POST['cadastrar'])){
         $motorista = new Motorista($_POST['nome'], $_POST['telefone'], $_POST['cpf']);
         $motorista->cadastrar();

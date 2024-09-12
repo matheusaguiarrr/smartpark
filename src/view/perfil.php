@@ -1,5 +1,6 @@
         <section id="conteudo">
             <div class="container w-75 py-5">
+                <?php include(TEMPLATES_PATH . '/mensagem.php'); ?>
                 <h1>Perfil</h1>
                 <form id="form" class="form-login w-100" action="../controller/PerfilController.php" method="post">
                     <?php

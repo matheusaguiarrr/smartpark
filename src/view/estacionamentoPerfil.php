@@ -1,5 +1,6 @@
         <section id="conteudo">
             <div class="container w-75 py-5">
+                <?php include(TEMPLATES_PATH . '/mensagem.php'); ?>
                 <h1 class="pb-3">Estacionamento</h1>
                 <div class="row">
                     <div class="form-group col-md-6">

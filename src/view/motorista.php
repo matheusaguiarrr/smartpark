@@ -1,5 +1,6 @@
         <section id="conteudo">
             <div class="container w-75 py-5">
+                <?php include(TEMPLATES_PATH . '/mensagem.php'); ?>
                 <h1 class="pb-3">Motoristas</h1>
                 <form id="form" class="form-login" action="../controller/MotoristaController.php" method="post">
                     <div class="row">
