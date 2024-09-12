@@ -32,6 +32,7 @@
 }
 
 #menu button {
+    height: 100%;
     width: 15%;
     background-color: transparent;
     border: none;

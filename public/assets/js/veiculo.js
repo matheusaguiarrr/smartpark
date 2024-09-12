@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $(document).on('click', '.btn-update-sm', function () { 
-        console.log($(this).val());
         $.ajax({
             url : "../../src/controller/VeiculoController.php",
             type : 'post',

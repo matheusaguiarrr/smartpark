@@ -2,11 +2,10 @@
     <section id="menu">
         <nav>
             <?php
-                if($estacionamento){
+                isset($estacionamento) ? $estacionamento : $estacionamento = null;
+                if(!is_null($estacionamento)){
                     $imagem = $estacionamento->getImagem();
-                    echo "
-                        <img src='/src/imagens/$imagem' alt='Logo Estacionamento'>
-                    ";
+                    echo "<img src='/src/imagens/$imagem' alt='Logo Estacionamento'>";
                 }
             ?>
             <ul>

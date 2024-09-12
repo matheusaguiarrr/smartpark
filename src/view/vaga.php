@@ -1,5 +1,6 @@
         <section id="conteudo">
             <div class="container w-75 py-5">
+                <?php include(TEMPLATES_PATH . '/mensagem.php'); ?>
                 <h1 class="pb-3">Vagas</h1>
                 <form id="form" class="form-login" action="../controller/VagaController.php" method="post">
                     <input type="hidden" name="estacionamento" value="<?php $id = $estacionamento->getId(); echo $id; ?>">
@@ -21,23 +22,22 @@
                             if(!is_null($vagas)){
                                 foreach($vagas as $vaga){
                                     if($vaga->getStatus() == "ocupado"){
-                                        echo "<div class='container-vaga col-md-4 m-2'>";
+                                        echo "<div class='container-vaga col-md-3 my-4 me-5'>";
                                         echo "<h3>".$vaga->getIdentificador()."</h3>";
                                     }
                                     elseif($vaga->getStatus() == "disponivel"){
-                                        echo "<div class='container-vaga col-md-3 m-2'>";
-                                        echo "<input type='hidden' name='id' value='{$vaga->getId()}'>";
+                                        echo "<div class='container-vaga col-md-3 my-4 me-5'>";
                                         echo "<h3>".$vaga->getIdentificador()."</h3>";
                                         echo "<p>".$vaga->getStatus()."</p>";
                                     }
                                     else {
-                                        echo "<div class='container-vaga col-md-4 m-2'>";
+                                        echo "<div class='container-vaga col-md-3 my-4 me-5'>";
                                         echo "<input type='hidden' name='id' value='{$vaga->getId()}'>";
                                         echo "<p>Identificador: ".$vaga->getIdentificador()."</p>";
                                         echo "<p>Status: ".$vaga->getStatus()."</p>";
                                     }
                                     echo "<button type='button' value='{$vaga->getId()}' class='btn-vaga btn-vaga-update' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-rotate'></i></button>";
-                                    echo "<button type='submit' name='deletar' class='btn-vaga btn-vaga-delete'><i class='fa-solid fa-trash-can'></i></button>";
+                                    echo "<button type='submit' value='{$vaga->getId()}' name='deletar' class='btn-vaga btn-vaga-delete'><i class='fa-solid fa-trash-can'></i></button>";
                                     echo "</div>";
                                 }
                             }
