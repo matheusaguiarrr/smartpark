@@ -51,6 +51,9 @@ if(isset($_POST['cadastrar'])){
         );
         $estacionamento->cadastrar();
     }
+    addSuccessMensage('Estacionamento cadastrado com sucesso!');
+    header('Location: EstacionamentoController.php');
+    return false;
 }
 if(isset($_POST['buscar'])){
     $estacionamento = Estacionamento::listar($_SESSION['id']);
@@ -116,6 +119,9 @@ if(isset($_POST['editar'])){
         );
         $estacionamento->atualizar();
     }
+    addSuccessMensage('Estacionamento editado com sucesso!');
+    header('Location: EstacionamentoController.php');
+    return false;
 }
 $estacionamento = Estacionamento::listar($_SESSION['id']);
 if($estacionamento){

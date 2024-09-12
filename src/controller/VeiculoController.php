@@ -13,7 +13,9 @@
     if(isset($_POST['cadastrar'])){
         $veiculo = new Veiculo($_POST['motorista'], $_POST['cor'], $_POST['ano'], $_POST['marca'], $_POST['modelo'], $_POST['categoria'], $_POST['placa']);
         $veiculo->cadastrar();
+        addSuccessMensage('Veículo cadastrado com sucesso!');
         header('Location: VeiculoController.php');
+        return false;
     }
     if(isset($_POST['buscar'])){
         $veiculo = Veiculo::listarUm($_POST['id']);
@@ -34,12 +36,17 @@
         $veiculo = new Veiculo($_POST['motoristaModal'], $_POST['corModal'], $_POST['anoModal'], $_POST['marcaModal'], $_POST['modeloModal'], $_POST['categoriaModal'], $_POST['placaModal']);
         $veiculo->setId($_POST['id']);
         $veiculo->atualizar();
+        addSuccessMensage('Veículo atualizado com sucesso!');
         header('Location: VeiculoController.php');
+        //return false pois o header executará o redirecionamento depois de executar todo o script
+        return false;
     }
     if(isset($_POST['excluir'])){
         $veiculo = Veiculo::listarUm($_POST['id']);
         $veiculo->excluir();
+        addSuccessMensage('Veículo excluído com sucesso!');
         header('Location: VeiculoController.php');
+        return false;
     }
     if(!is_null($estacionamento) && !is_null($veiculos) && !is_null($motoristas)){
         foreach($veiculos as $veiculo){

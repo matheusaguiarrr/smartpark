@@ -49,7 +49,9 @@
                 );
             $usuario->atualizar();
         } 
+        addSuccessMensage('Usuário atualizado com sucesso!');
         header('Location: PerfilController.php');
+        return false;
     }
     if(!is_null($estacionamento)){
         loadTemplateView('perfil', ['usuario' => $usuario, 'estacionamento' => $estacionamento]);

@@ -9,6 +9,9 @@
     if(isset($_POST['cadastrar'])){
         $motorista = new Motorista($_POST['nome'], $_POST['telefone'], $_POST['cpf']);
         $motorista->cadastrar();
+        addSuccessMensage('Motorista cadastrado com sucesso!');
+        header('Location: MotoristaController.php');
+        return false;
     }
     if(isset($_POST['buscar'])){
         $motorista = Motorista::buscarPorId($_POST['id']);
@@ -24,9 +27,15 @@
         $motorista = new Motorista($_POST['nome'], $_POST['telefone']);
         $motorista->setId($_POST['id']);
         $motorista->atualizar();
+        addSuccessMensage('Motorista atualizado com sucesso!');
+        header('Location: MotoristaController.php');
+        return false;
     }
     if(isset($_POST['excluir'])){
         Motorista::deletar($_POST['id']);
+        addSuccessMensage('Motorista excluído com sucesso!');
+        header('Location: MotoristaController.php');
+        return false;
     }
     $motoristas = Motorista::listar();
     $estacionamento = Estacionamento::listar($_SESSION['id']);

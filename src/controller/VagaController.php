@@ -14,7 +14,7 @@
         $retorno = $vaga->cadastrar($estacionamento);
         print_r($retorno);
         if($retorno == false){
-            addErrorMensage("Limite de vagas atingido!");
+            addWarningMensage("Limite de vagas atingido!");
         }
         else {
             addSuccessMensage('Vaga cadastrada com sucesso!');
@@ -33,13 +33,14 @@
     }
     if(isset($_POST['editar'])){
         Vaga::atualizar($_POST['identificador'], $_POST['status'], $_POST['id']);
+        addSuccessMensage('Vaga atualizada com sucesso!');
         header('Location: VagaController.php');
         return false;
     }
     if(isset($_POST['deletar'])){
         $vaga = new Vaga($_POST['estacionamento'], $_POST['deletar'], null);
         $vaga->deletar();
-        addErrorMensage('Vaga deletada com sucesso!');
+        addSuccessMensage('Vaga deletada com sucesso!');
         header('Location: VagaController.php');
         return false;
     }
