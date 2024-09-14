@@ -39,11 +39,21 @@ class Vaga {
         $this->status = $status;
     }
     //Métodos
-    public function ocupar() {
-        $this->status = "ocupado";
+    public static function ocupar($vaga, $motorista, $veiculo, $usuario) {
+        $vaga->setStatus("ocupada");
+        $sql1 = "UPDATE vagas SET status = ? WHERE id = ?";
+        $params1 = array($vaga->getStatus(), $vaga->getId());
+        $sql2 = "INSERT INTO reservas (usuario, motorista, veiculo, vaga, data_horario_entrada, data_horario_saida, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $params2 = array($usuario, $motorista, $veiculo, $vaga->getId(), date("Y-m-d H:i:s"), null, "em andamento");
+        return Database::executeSQLWithTransaction($sql1, $sql2, $params1, $params2);
     }
-    public function liberar() {
-        $this->status = "disponivel";
+    public static function liberar($vaga, $usuario) {
+        $vaga->setStatus("disponivel");
+        $sql1 = "UPDATE vagas SET status = ? WHERE id = ?";
+        $params1 = array($vaga->getStatus(), $vaga->getId());
+        $sql2 = "UPDATE reservas SET usuario = ?, data_horario_saida = ?, status = ? WHERE vaga = ?";
+        $params2 = array($usuario, date("Y-m-d H:i:s"), "finalizada", $vaga->getId());
+        return Database::executeSQLWithTransaction($sql1, $sql2, $params1, $params2);
     }
     public function desativar() {
         $this->status = "indisponivel";

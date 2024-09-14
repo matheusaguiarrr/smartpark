@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 define('TEMPLATES_PATH', realpath(dirname(__FILE__) . "/../view/template"));
 define('VIEWS_PATH', realpath(dirname(__FILE__) . "/../view"));
 function loadView($viewName, $params = []){

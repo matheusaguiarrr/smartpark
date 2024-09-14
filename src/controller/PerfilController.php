@@ -20,7 +20,7 @@
         return false;
     }
     if(isset($_POST['editar'])){
-        if(isset($_FILES['foto'])){
+        if(isset($_FILES['foto']) && !empty($_FILES['foto']['name'])){
             $imagem = $_FILES['foto']['name'];
             $extensao = pathinfo($imagem, PATHINFO_EXTENSION);
             $novo_nome = md5(microtime()).".".$extensao;
@@ -28,7 +28,7 @@
             $usuario = new Usuario
                 (
                     null, 
-                    $_POST['nome'], 
+                    $_POST['nome'],
                     null, 
                     null, 
                     $_POST['telefone'],

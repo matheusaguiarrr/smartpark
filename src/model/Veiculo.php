@@ -9,7 +9,7 @@
         private $modelo;
         private $categoria;
         private $placa;
-        function __construct($motorista, $cor, $ano, $marca, $modelo, $categoria, $placa){
+        function __construct($motorista, $cor, $ano, $marca, $modelo, $categoria, $placa, $id = null){
             $this->motorista = $motorista;
             $this->cor = $cor;
             $this->ano = $ano;
@@ -17,6 +17,7 @@
             $this->modelo = $modelo;
             $this->categoria = $categoria;
             $this->placa = $placa;
+            $this->id = $id;
         }
 
         public function getMotorista(){
@@ -93,9 +94,35 @@
             $params = array($id);
             $result = Database::getResultFromQuery($sql, $params);
             if($result){
-                $veiculo = new Veiculo($result->motorista, $result->cor, $result->ano, $result->marca, $result->modelo, $result->categoria, $result->placa);
-                $veiculo->setId($result->id);
+                $veiculo = new Veiculo($result->motorista, $result->cor, $result->ano, $result->marca, $result->modelo, $result->categoria, $result->placa, $result->id);
                 return $veiculo;
+            }
+            return null;
+        }
+        public static function buscarPorMotorista($motorista){
+            $sql = "SELECT * FROM veiculos WHERE motorista = ?";
+            $params = array($motorista);
+            $result = Database::getResultsFromQuery($sql, $params);
+            if($result){
+                $veiculos = [];
+                if(!is_array($result)){
+                    $result = [$result];
+                }
+                foreach($result as $veiculo){
+                    $veiculo = new Veiculo
+                    (
+                        $veiculo->motorista, 
+                        $veiculo->cor, 
+                        $veiculo->ano, 
+                        $veiculo->marca, 
+                        $veiculo->modelo, 
+                        $veiculo->categoria, 
+                        $veiculo->placa,
+                        $veiculo->id
+                    );
+                    $veiculos[] = $veiculo;
+                }
+                return $veiculos;
             }
             return null;
         }

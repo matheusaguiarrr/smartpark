@@ -41,6 +41,9 @@ class Database {
             if($stmt->rowCount() == 0){
                 return null;
             }
+            if($stmt->rowCount() == 1){
+                return $stmt->fetch(\PDO::FETCH_OBJ);
+            }
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
         } catch(\PDOException $exception){
             die("Erro: " . $exception->getMessage());
@@ -57,5 +60,24 @@ class Database {
         $id = $connection->lastInsertId();
         $connection = null;
         return $id;
+    }
+
+    public static function executeSQLWithTransaction($sql1, $sql2, $params1 = [], $params2 = []){
+        $connection = self::getConnect();
+        try {
+            // Iniciar a transação
+            $connection->beginTransaction();
+            $updateStmt = $connection->prepare($sql1);
+            $updateStmt->execute($params1);
+            $insertStmt = $connection->prepare($sql2);
+            $insertStmt->execute($params2);
+            // Se tudo deu certo, confirmar a transação
+            $connection->commit();
+            echo "Operação realizada com sucesso!";
+        } catch (Exception $e) {
+            // Se ocorrer qualquer erro, reverter as alterações
+            $connection->rollBack();
+            echo "Falha na operação: " . $e->getMessage();
+        }
     }
 }

@@ -35,6 +35,9 @@ main {
     width: 84vw;
 }
 
+.alert {
+    font-weight: bold;
+}
 
 /*Texto*/
 
@@ -99,6 +102,17 @@ input:focus {
     padding: .3rem 1rem;
     margin: 1.5rem 0;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-register-sm {
+    color: #fff;
+    background-color: var(--tertiary-color);
+    font-size: clamp(0.6rem, 2vw, 1rem);
+    font-weight: bold;
+    padding: .2rem .5rem;
+    border: 3px solid var(--secondary-color);
     border-radius: 5px;
     cursor: pointer;
 }
