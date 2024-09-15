@@ -1,13 +1,8 @@
 <h1 align="center" style="font-weight: bold;">🚘 SmartPark 🛜</h1>
 
-<div align="center"> 
-  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"><img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" target="_blank"></a>
-  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"><img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" target="_blank"></a>
-  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" target="_blank"></a>
-  <a href="https://getbootstrap.com/"><img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" target="_blank"></a>
-  <a href="https://www.php.net/"><img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" target="_blank"></a>
-  <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" target="_blank"></a>
-</div>
+<p align="center">
+  <b>Projeto desenvolvido ao longo das disciplinas de Front-End I e Back-End I da minha faculdade. O SmartPark é um sistema para gerenciamento de estacionamentos simples e intuitivo</b>
+</p>
 
 <br>
 <p align="center">
@@ -16,9 +11,24 @@
   <a href="#licenca">Licença</a> •
 </p>
 
-<p align="center">
-  <b>Projeto desenvolvido ao final do curso de PHP 7 Completo da Cod3r na plataforma Udemy. In 'N Out é um sistem de ponto eletrônico.</b>
-</p>
+<h2> 🖥️ Tecnologias Utilizadas</h2>
+
+<div align="center"> 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="bootstrap logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/jquery/0769AD" height="40" alt="jquery logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql logo"  />
+</div>
+
 <br>
 <h2 id="executando">🚀 Executando o projeto na sua máquina local</h2>
 
@@ -33,7 +43,7 @@
 Como clonar o projeto
 
 ```bash
-git clone https://github.com/matheusaguiarrr/InNout.git
+git clone https://github.com/matheusaguiarrr/smartpark.git
 ```
 
 <h3>Criando e Conectando o Banco de Dados</h3>
@@ -54,11 +64,18 @@ extras/
 public/
 ├── assets/
 │   ├── css/
+│       └── bootstrap
+│       └── components
+│       └── fontawesome
+│   ├── img/ 
 │   ├── js/
 src/
 ├── config/
 ├── controllers/
 ├── exceptions/
+├── imagens/
+│   └── parks
+│   └── users
 ├── models/
 ├── views/
 │   └── template
