@@ -17,25 +17,18 @@
             <img src="../../public/assets/img/porsche.png" alt="background">
         </section>
         <section id="formulario">
-            <form id="form" action="../controller/LoginController.php" method="post">
-                <h1>LOGIN</h1>
+            <form id="form" action="../controller/EnvioEmailController.php" method="post">
+                <h1>E-MAIL DE CONFIRMAÇÃO</h1>
                 <?php include(TEMPLATES_PATH . '/mensagem.php'); ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Informe o e-mail" value="<?= $_POST ? $_POST['email'] : '' ?>" autofocus>
                     <div id="email_feedback" class="invalid-feedback"></div>
                 </div>
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="Informe a senha" value="<?= $_POST ? $_POST['password'] : '' ?>">
-                    <div id="senha_feedback" class="invalid-feedback"></div>
-                </div>
-                <button id="btn-login">
-                    Entrar
+                <button type="submit" name="enviar" id="btn-login">
+                    Enviar
                 </button>
-                <a href="#">Esqueceu a senha?</a>
-                <a href="/src/controller/EnvioEmailController.php">Confirme seu e-mail</a>
-                <a href="/src/controller/CadastroController.php">Não possui conta? Cadastre-se</a>
+                <a href="/src/controller/LoginController.php">Já confirmou seu e-mail? Login</a>
             </form>
         </section>
     </main>

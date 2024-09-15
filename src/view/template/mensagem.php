@@ -2,7 +2,7 @@
     $errors = [];
     if(isset($_SESSION['message'])){
         $message = $_SESSION['message']; ?>
-            <div role="alert" class="my-3 alert alert-<?= $_SESSION['message']['type'] ?>">
+            <div role="alert" class="alert alert-<?= $_SESSION['message']['type'] ?>">
                 <?= $_SESSION['message']['message'] ?>
             </div>
         <?php

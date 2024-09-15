@@ -59,10 +59,10 @@
                         </div>
                     </div>
                 </div>
-                <button id="btn-register">
+                <button type="submit" name="cadastro" id="btn-register">
                     Cadastrar
                 </button>
-                <a href="/src/view/login.php">Já possui conta? Conecte-se</a>
+                <a href="/src/controller/LoginController.php">Já possui conta? Conecte-se</a>
             </form>
         </section>
     </main>

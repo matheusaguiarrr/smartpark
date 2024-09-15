@@ -10,9 +10,11 @@
     require_once '../model/Motorista.php';
     require_once '../model/Estacionamento.php';
     $estacionamento = Estacionamento::listar($_SESSION['id']);
-    $vagas = Vaga::listar($estacionamento->getId());
-    $veiculos = Veiculo::listarTodos();
-    $motoristas = Motorista::listar();
+    if(!is_null($estacionamento)){
+        $vagas = Vaga::listar($estacionamento->getId());
+        $veiculos = Veiculo::listarTodos();
+        $motoristas = Motorista::listar();
+    }
     if(isset($_POST['entrada'])){
         $vaga = Vaga::buscarPorId($_POST['id']);
         Vaga::ocupar($vaga, $_POST['motorista'], $_POST['veiculo'], $_SESSION['id']);

@@ -7,15 +7,19 @@ class Usuario {
     private $email;
     private $senha;
     private $telefone;
+    private $verificado;
+    private $codigoVerificacao;
     private $imagem;
-    public function __construct($cpf, $nome, $email, $senha, $telefone, $imagem = null, $id = null){
-        $this->id = $id;
+    public function __construct($cpf, $nome, $email, $senha, $telefone, $verificado = null, $codigoVerificacao = null ,$imagem = null, $id = null){
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
         $this->telefone = $telefone;
+        $this->verificado = $verificado;
+        $this->codigoVerificacao = $codigoVerificacao;
         $this->imagem = $imagem;
+        $this->id = $id;
     }
     //Getters
     public function getId() {
@@ -35,6 +39,12 @@ class Usuario {
     }
     public function getTelefone() {
         return $this->telefone;
+    }
+    public function getVerificado() {
+        return $this->verificado;
+    }
+    public function getCodigoVerificacao() {
+        return $this->codigoVerificacao;
     }
     public function getImagem() {
         return $this->imagem;
@@ -57,6 +67,12 @@ class Usuario {
     }
     public function setTelefone($telefone) {
         $this->telefone = $telefone;
+    }
+    public function setVerificado($verificado) {
+        $this->verificado = $verificado;
+    }
+    public function setCodigoVerificacao($codigoVerificacao) {
+        $this->codigoVerificacao = $codigoVerificacao;
     }
     public function setImagem($imagem) {
         $this->imagem = $imagem;
@@ -81,14 +97,30 @@ class Usuario {
         $sql = "SELECT * FROM usuarios WHERE email = ?";
         $params = array($email);
         $result = Database::getResultFromQuery($sql, $params);
-        if(!$result){
-            return false;
-        } else if(!password_verify($senha, $result->senha)){
-            return false;
+        if (!$result) {
+            return ['status' => 'error', 'message' => 'Cadastro não encontrado.'];
+        }
+        // Verifica se a senha está incorreta
+        if (!password_verify($senha, $result->senha)) {
+            return ['status' => 'error', 'message' => 'Senha incorreta.'];
+        }
+        // Verifica se o usuário ainda não foi verificado
+        if ($result->verificado == 0) {
+            return ['status' => 'error', 'message' => 'E-mail não verificado! Por favor, verifique sua caixa de e-mail.'];
         }
         $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->tipo_usuario);
         $usuario->setId($result->id);
-        return $usuario;
+        return ['status' => 'success', 'usuario' => $usuario];
+    }
+
+    public static function guardarCodigo($email, $codigo){
+        $sql = "UPDATE usuarios SET codigo_verificacao = ? WHERE email = ?";
+        $params = array($codigo, $email);
+        $result = Database::getResultFromQuery($sql, $params);
+        if($result){
+            return true;
+        }
+        return false;
     }
 
     public static function buscar($id){
@@ -98,6 +130,27 @@ class Usuario {
         if($result){
             $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->imagem, $result->id);
             return $usuario;
+        }
+        return null;
+    }
+
+    public static function buscarPorEmail($email){
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
+        $params = array($email);
+        $result = Database::getResultFromQuery($sql, $params);
+        if($result){
+            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->verificado, $result->codigo_verificacao, $result->imagem, $result->id);
+            return $usuario;
+        }
+        return null;
+    }
+
+    public static function ativarCadastro($email){
+        $sql = "UPDATE usuarios SET verificado = ? WHERE email = ?";
+        $params = array(true, $email);
+        $result = Database::getResultFromQuery($sql, $params);
+        if($result){
+            return true;
         }
         return null;
     }

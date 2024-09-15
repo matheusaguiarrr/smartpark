@@ -21,44 +21,44 @@ function verifica(event) {
     let cfSenhaInvalida = document.getElementById("cfsenha_feedback");
     let camposObrigatorios = 0;
     if (nome.value == "") {
-        nomeInvalido.innerHTML = "<p>Nome é obrigatório</p>";
+        nomeInvalido.innerHTML = "Nome é obrigatório";
         nome.classList.add("is-invalid");
         camposObrigatorios++;
     }
     if (cpf.value == "") {
-        cpfInvalido.innerHTML = "<p>CPF é obrigatório</p>";
+        cpfInvalido.innerHTML = "CPF é obrigatório";
         cpf.classList.add("is-invalid");
         camposObrigatorios++;
     } else if (!validarCPF(cpf.value)) {
-        cpfInvalido.innerHTML = "<p>CPF inválido</p>";
+        cpfInvalido.innerHTML = "CPF inválido";
         cpf.classList.add("is-invalid");
         camposObrigatorios++;
     }
     if (telefone.value == "") {
-        telefoneInvalido.innerHTML = "<p>Telefone é obrigatório</p>";
+        telefoneInvalido.innerHTML = "Telefone é obrigatório";
         telefone.classList.add("is-invalid");
         camposObrigatorios++;
     }
     if (email.value == "") {
-        emailInvalido.innerHTML = "<p>Email é obrigatório</p>";
+        emailInvalido.innerHTML = "Email é obrigatório";
         email.classList.add("is-invalid");
         camposObrigatorios++;
     } else if (!validarEmail(email.value)) {
-        emailInvalido.innerHTML = "<p>Email inválido</p>";
+        emailInvalido.innerHTML = "Email inválido";
         email.classList.add("is-invalid");
         camposObrigatorios++;
     }
     if (senha.value == "") {
-        senhaInvalida.innerHTML = "<p>Senha é obrigatório</p>";
+        senhaInvalida.innerHTML = "Senha é obrigatório";
         senha.classList.add("is-invalid");
         camposObrigatorios++;
     }
     if (confirmacaoSenha.value == "") {
-        cfSenhaInvalida.innerHTML = "<p>Confirmação de senha é obrigatório</p>";
+        cfSenhaInvalida.innerHTML = "Confirmação de senha é obrigatório";
         confirmacaoSenha.classList.add("is-invalid");
         camposObrigatorios++;
     } else if (senha.value != confirmacaoSenha.value) {
-        cfSenhaInvalida.innerHTML = "<p>Senhas não conferem</p>";
+        cfSenhaInvalida.innerHTML = "Senhas não conferem";
         confirmacaoSenha.classList.add("is-invalid");
         camposObrigatorios++;
     }
