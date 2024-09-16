@@ -10,7 +10,7 @@ class Usuario {
     private $verificado;
     private $codigoVerificacao;
     private $imagem;
-    public function __construct($cpf, $nome, $email, $senha, $telefone, $verificado = null, $codigoVerificacao = null ,$imagem = null, $id = null){
+    public function __construct($cpf, $nome, $email, $senha, $telefone, $imagem = null, $id = null, $verificado = null, $codigoVerificacao = null){
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->email = $email;
@@ -108,7 +108,7 @@ class Usuario {
         if ($result->verificado == 0) {
             return ['status' => 'error', 'message' => 'E-mail não verificado! Por favor, verifique sua caixa de e-mail.'];
         }
-        $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->tipo_usuario);
+        $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone);
         $usuario->setId($result->id);
         return ['status' => 'success', 'usuario' => $usuario];
     }
@@ -128,7 +128,9 @@ class Usuario {
         $params = array($id);
         $result = Database::getResultFromQuery($sql, $params);
         if($result){
-            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone, $result->imagem, $result->id);
+            $usuario = new Usuario($result->cpf, $result->nome, $result->email, $result->senha, $result->telefone);
+            $usuario->setImagem($result->imagem);
+            $usuario->setId($result->id);
             return $usuario;
         }
         return null;
@@ -161,8 +163,7 @@ class Usuario {
         if($result){
             $usuarios = [];
             while($row = $result){
-                $usuario = new Usuario($row['cpf'], $row['nome'], $row['email'], $row['senha'], $row['telefone']);
-                $usuario->setId($row['id']);
+                $usuario = new Usuario($row['cpf'], $row['nome'], $row['email'], $row['senha'], $row['telefone'], null, null, $row['imagem'], $row['id']);
                 $usuarios[] = $usuario;
             }
             return $usuarios;

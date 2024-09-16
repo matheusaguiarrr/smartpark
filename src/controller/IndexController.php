@@ -46,6 +46,11 @@
         }
         return false;
     }
+    if(is_null($estacionamento)){
+        addWarningMensage('Cadastre os dados do seu estacionamento para continuar');
+        header('Location: EstacionamentoController.php');
+        return false;
+    }
     if($estacionamento && !is_null($vagas) && !is_null($motoristas)){
         if(!is_null($veiculos)){
             loadTemplateView('index', ['estacionamento' => $estacionamento, 'vagas' => $vagas, 'veiculos' => $veiculos, 'motoristas' => $motoristas]);

@@ -41,6 +41,9 @@
                                     echo "</div>";
                                 }
                             }
+                            else {
+                                echo "<p>Nenhuma vaga cadastrada</p>";
+                            }
                         ?>
                     </div>
                 </form>
