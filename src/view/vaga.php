@@ -18,7 +18,6 @@
                     <input type="hidden" name="estacionamento" value="<?php $id = $estacionamento->getId(); echo $id; ?>">
                     <div class="row">
                         <?php
-                            isset($vagas) ? $vagas : $vagas = null;
                             if(!is_null($vagas)){
                                 foreach($vagas as $vaga){
                                     if($vaga->getStatus() == "ocupado"){

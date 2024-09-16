@@ -1,5 +1,5 @@
 <?php
-    isset($vaga) ? $vagas = $vagas : $vagas = null;
+    isset($vagas) ? $vagas : $vagas = null;
     isset($estacionamento) ? $estacionamento : $estacionamento = null;
 ?>
 <main>

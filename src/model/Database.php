@@ -41,9 +41,6 @@ class Database {
             if($stmt->rowCount() == 0){
                 return null;
             }
-            if($stmt->rowCount() == 1){
-                return $stmt->fetch(\PDO::FETCH_OBJ);
-            }
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
         } catch(\PDOException $exception){
             die("Erro: " . $exception->getMessage());

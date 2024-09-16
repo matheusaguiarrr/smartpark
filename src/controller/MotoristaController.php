@@ -3,10 +3,14 @@
     if(!isset($_SESSION)){
         header('Location: login.php');
     }
-    require_once '../model/Motorista.php';
-    require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
     require_once '../config/util.php';
+    require_once '../model/Motorista.php';
+    require_once '../model/Estacionamento.php';
+    require_once '../model/Vaga.php';
+    $motoristas = Motorista::listar();
+    $estacionamento = Estacionamento::listar($_SESSION['id']);
+    $vagas = Vaga::listar($estacionamento->getId());
     if(isset($_POST['cadastrar'])){
         $motorista = new Motorista($_POST['nome'], $_POST['telefone'], $_POST['cpf']);
         $motorista->cadastrar();
@@ -38,17 +42,4 @@
         header('Location: MotoristaController.php');
         return false;
     }
-    $motoristas = Motorista::listar();
-    $estacionamento = Estacionamento::listar($_SESSION['id']);
-    if(!is_null($motoristas) && !is_null($estacionamento)){
-        loadTemplateView('motorista', ['motoristas' => $motoristas, 'estacionamento' => $estacionamento]);
-    }
-    else if(!is_null($motoristas)){
-        loadTemplateView('motorista', ['motoristas' => $motoristas]);
-    }
-    else if(!is_null($estacionamento)){
-        loadTemplateView('motorista', ['estacionamento' => $estacionamento]);
-    }
-    else {
-        loadTemplateView('motorista');
-    }
+    loadTemplateView('motorista', ['motoristas' => $motoristas, 'estacionamento' => $estacionamento, 'vagas' => $vagas]);

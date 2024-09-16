@@ -3,12 +3,14 @@
     if(!isset($_SESSION)){
         header('Location: login.php');
     }
-    require_once '../model/Usuario.php';
-    require_once '../model/Estacionamento.php';
     require_once '../config/load.php';
     require_once '../config/util.php';
+    require_once '../model/Usuario.php';
+    require_once '../model/Estacionamento.php';
+    require_once '../model/Vaga.php';
     $usuario = Usuario::buscar($_SESSION['id']);
     $estacionamento = Estacionamento::listar($_SESSION['id']);
+    $vagas = Vaga::listar($estacionamento->getId());
     if(isset($_POST['buscar'])){
         $usuario = Usuario::buscar($_POST['id']);
         echo json_encode(
@@ -54,9 +56,4 @@
         header('Location: PerfilController.php');
         return false;
     }
-    if(!is_null($estacionamento)){
-        loadTemplateView('perfil', ['usuario' => $usuario, 'estacionamento' => $estacionamento]);
-    }
-    else {
-        loadTemplateView('perfil', ['usuario' => $usuario]);
-    }
+    loadTemplateView('perfil', ['usuario' => $usuario, 'estacionamento' => $estacionamento, 'vagas' => $vagas]);
